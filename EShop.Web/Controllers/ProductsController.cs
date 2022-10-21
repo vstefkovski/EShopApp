@@ -9,16 +9,20 @@ using EShop.Web.Data;
 using EShop.Web.Models.Domain;
 using EShop.Web.Models.DTO;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
+using EShop.Web.Models.Identity;
 
 namespace EShop.Web.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<EShopApplicationUser> _userManager;
 
-        public ProductsController(ApplicationDbContext context)
+        public ProductsController(ApplicationDbContext context, UserManager<EShopApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Products

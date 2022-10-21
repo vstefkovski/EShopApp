@@ -6,7 +6,10 @@
 }
 
 <div class="container">
-    <div class="m-3">
+
+    
+
+    <div class="row m-3">
         <a class="btn btn-success" asp-controller="Products" asp-action="Create">Add new Product</a>
     </div>
 
@@ -26,7 +29,7 @@
                 <div class="card-body">
                     <h3 class="card-title">@item.ProductName</h3>
                     <p class="card-text">@item.ProductDescription</p>
-                    <h6>Price: @item.ProductPrice</h6>
+                    <h6>Price: @item.ProductPrice $</h6>
                 </div>
 
                     <div class="card-footer">
