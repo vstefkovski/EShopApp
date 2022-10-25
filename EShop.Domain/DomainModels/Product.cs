@@ -4,11 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EShop.Web.Models.Domain
+namespace EShop.Domain.DomainModels
 {
-    public class Product
+    public class Product : BaseEntity
     {
-        public Guid Id { get; set; }
         [Required]
 
         public string ProductName { get; set; }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EShop.Web.Models.Domain
+namespace EShop.Domain.DomainModels
 {
-    public class ProductInOrder
+    public class ProductInOrder : BaseEntity
     {
         public Guid ProductId { get; set; }
         public Product SelectedProduct { get; set; }

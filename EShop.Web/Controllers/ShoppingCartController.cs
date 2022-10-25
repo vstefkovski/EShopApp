@@ -1,7 +1,8 @@
-﻿using EShop.Web.Data;
-using EShop.Web.Models.Domain;
-using EShop.Web.Models.DTO;
-using EShop.Web.Models.Identity;
+﻿using EShop.Domain.DomainModels;
+using EShop.Domain.DTO;
+using EShop.Domain.Identity;
+using EShop.Repository;
+using EShop.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

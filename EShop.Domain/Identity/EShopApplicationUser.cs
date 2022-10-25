@@ -1,11 +1,11 @@
-﻿using EShop.Web.Models.Domain;
+﻿using EShop.Domain.DomainModels;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EShop.Web.Models.Identity
+namespace EShop.Domain.Identity
 {
     public class EShopApplicationUser : IdentityUser
     {
