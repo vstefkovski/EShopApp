@@ -42,6 +42,8 @@ namespace EShop.Web
             services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
 
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IShoppingCartService, ShoppingCartService>();
+
 
 
             services.AddControllersWithViews();

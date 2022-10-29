@@ -2,6 +2,7 @@
 using EShop.Domain.DTO;
 using EShop.Repository.Interface;
 using EShop.Services.Interface;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,15 @@ namespace EShop.Services.Implementation
         private readonly IRepository<Product> _productRepository;
         private readonly IRepository<ProductInShoppingCart> _productInShoppingCartRepository;
         private readonly IUserRepository _userRepository;
+        private readonly ILogger<ProductService> _logger;
 
-        public ProductService(IRepository<Product> productRepository, IUserRepository userRepository, IRepository<ProductInShoppingCart> productInShoppingCartRepository)
+
+        public ProductService(IRepository<Product> productRepository, ILogger<ProductService> logger, IUserRepository userRepository, IRepository<ProductInShoppingCart> productInShoppingCartRepository)
         {
             _productRepository = productRepository;
             _userRepository = userRepository;
             _productInShoppingCartRepository = productInShoppingCartRepository;
+            _logger = logger;
         }
 
 
@@ -36,6 +40,7 @@ namespace EShop.Services.Implementation
             {
                 ProductInShoppingCart itemToAdd = new ProductInShoppingCart
                 {
+                    Id = Guid.NewGuid(),
                     ProductId = product.Id,
                     ShoppingCartId = userShoppingCart.Id,
                     Product = product,
@@ -43,9 +48,12 @@ namespace EShop.Services.Implementation
                     Quantity = item.Quantity
                 };
                 this._productInShoppingCartRepository.Insert(itemToAdd);
+                _logger.LogInformation("Product was successfully added into Shopping Cart!");
+
                 return true;
 
             }
+            _logger.LogInformation("Something was wrong. ProductId or UserShoppingCart may be unavaliable!");
             return false;
         }
 
@@ -62,6 +70,8 @@ namespace EShop.Services.Implementation
 
         public List<Product> GetAllProducts()
         {
+            _logger.LogInformation("Get all products was called!");
+
             return this._productRepository.GetAll().ToList();
 
         }

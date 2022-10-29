@@ -1,4 +1,5 @@
-﻿using EShop.Domain.Identity;
+﻿using EShop.Domain.DomainModels;
+using EShop.Domain.Identity;
 using System;
 using System.Collections.Generic;
 using System.Text;

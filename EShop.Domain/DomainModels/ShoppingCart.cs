@@ -8,6 +8,7 @@ namespace EShop.Domain.DomainModels
 {
     public class ShoppingCart : BaseEntity
     {
+        public Guid Id { get; set; }
 
         public string OwnerId { get; set; }
 
