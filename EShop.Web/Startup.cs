@@ -40,13 +40,17 @@ namespace EShop.Web
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
+            services.AddScoped(typeof(IOrderRepository), typeof(OrderRepository));
 
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IShoppingCartService, ShoppingCartService>();
+            services.AddTransient<IOrderService, OrderService>();
 
 
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddRazorPages();
         }
 
