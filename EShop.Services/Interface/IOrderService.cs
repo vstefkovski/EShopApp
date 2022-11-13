@@ -3,14 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EShop.Repository.Interface
+namespace EShop.Services.Interface
 {
     public interface IOrderService
     {
-        List<Order> GetAllOrders();
-
-        Order GetOrderDetails(BaseEntity model);
-
-
+        public List<Order> GetAllOrders();
+        public Order GetOrderDetails(BaseEntity model);
     }
 }

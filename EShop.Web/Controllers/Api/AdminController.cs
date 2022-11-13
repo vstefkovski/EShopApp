@@ -5,6 +5,7 @@ using EShop.Repository.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using EShop.Services.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;

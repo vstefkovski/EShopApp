@@ -1,10 +1,11 @@
 ﻿using EShop.Domain.DomainModels;
 using EShop.Repository.Interface;
+using EShop.Services.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EShop.Repository.Implementation
+namespace EShop.Services.Implementation
 {
     public class OrderService : IOrderService
     {
@@ -12,9 +13,8 @@ namespace EShop.Repository.Implementation
 
         public OrderService(IOrderRepository orderRepository)
         {
-            this._orderRepository = orderRepository;
+            _orderRepository = orderRepository;
         }
-
         public List<Order> GetAllOrders()
         {
             return this._orderRepository.GetAllOrders();
